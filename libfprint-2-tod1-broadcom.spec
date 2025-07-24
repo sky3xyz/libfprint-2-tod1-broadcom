@@ -79,42 +79,52 @@ install -D -m 0755 %{cspkus3dir}/var/lib/fprint/fw/cv3plus/key.pem %{buildroot}%
 
 
 %files
+# Explicitly own/create the fprint directory and its subdirectories
+%dir %{_sharedstatedir}/fprint
+%dir %{_sharedstatedir}/fprint/fw
+%dir %{_sharedstatedir}/fprint/fw/cv3
+%dir %{_sharedstatedir}/fprint/.broadcomCv3plusFW
+
 # CV3
-%attr(644, -, -) %license libfprint-2-tod1-broadcom/LICENCE.broadcom
-%attr(644, -, -) %{_udevrulesdir}/60-libfprint-2-device-broadcom.rules
-%attr(755, -, -) %{_libdir}/libfprint-2/tod-1/libfprint-2-tod-1-broadcom.so
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcm_cv_clearscd.bin
-%attr(755, -, -) %{_sharedstatedir}/fprint/fw/key.pem
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcmCitadel_1.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcmCitadel_7.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcmDeviceFirmwareCitadel_1.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcmDeviceFirmwareCitadel_7.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcm_cv_current_version.txt
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcmsbiCitadelA0_1.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/bcmsbiCitadelA0_7.otp
+%license %{cs3dir}/LICENCE.broadcom
+%attr(644, root, root) %{_udevrulesdir}/60-libfprint-2-device-broadcom.rules
+%attr(755, root, root) %{_libdir}/libfprint-2/tod-1/libfprint-2-tod-1-broadcom.so
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcm_cv_clearscd.bin
+%attr(755, root, root) %{_sharedstatedir}/fprint/fw/key.pem
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcmCitadel_1.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcmCitadel_7.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcmDeviceFirmwareCitadel_1.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcmDeviceFirmwareCitadel_7.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcm_cv_current_version.txt
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcmsbiCitadelA0_1.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/bcmsbiCitadelA0_7.otp
+
 # CV3plus
-%attr(644, -, -) %{_udevrulesdir}/60-libfprint-2-device-broadcom-cv3plus.rules
-%attr(755, -, -) %{_libdir}/libfprint-2/tod-1/libfprint-2-tod-1-broadcom-cv3plus.so
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcmCitadel_1.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcmCitadel_7.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcmDeviceFirmwareCitadel_1.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcmDeviceFirmwareCitadel_7.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcm_cv_clearscd.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcm_cv_current_version.txt
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcmsbiCitadelA0_1.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/fw/cv3/bcmsbiCitadelA0_7.otp
-%attr(755, -, -) %{_sharedstatedir}/fprint/fw/cv3/key.pem
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmCitadel_1.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmCitadel_7.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmDeviceFirmwareCitadel_1.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmDeviceFirmwareCitadel_7.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcm_cv_clearscd.bin
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcm_cv_current_version.txt
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmsbiCitadelB0_1.otp
-%attr(644, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmsbiCitadelB0_7.otp
-%attr(755, -, -) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/key.pem
+%attr(644, root, root) %{_udevrulesdir}/60-libfprint-2-device-broadcom-cv3plus.rules
+%attr(755, root, root) %{_libdir}/libfprint-2/tod-1/libfprint-2-tod-1-broadcom-cv3plus.so
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcmCitadel_1.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcmCitadel_7.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcmDeviceFirmwareCitadel_1.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcmDeviceFirmwareCitadel_7.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcm_cv_clearscd.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcm_cv_current_version.txt
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcmsbiCitadelA0_1.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/fw/cv3/bcmsbiCitadelA0_7.otp
+%attr(755, root, root) %{_sharedstatedir}/fprint/fw/cv3/key.pem
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmCitadel_1.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmCitadel_7.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmDeviceFirmwareCitadel_1.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmDeviceFirmwareCitadel_7.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcm_cv_clearscd.bin
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcm_cv_current_version.txt
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmsbiCitadelB0_1.otp
+%attr(644, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/bcmsbiCitadelB0_7.otp
+%attr(755, root, root) %{_sharedstatedir}/fprint/.broadcomCv3plusFW/key.pem
 
 %changelog
+* Thu Jul 24 2025 sky3 <services@sky3.xyz> 6.1.26-5
+- Explicitly create/own %{_sharedstatedir}/fprint and its subdirectories
+
 * Fri Apr 18 2025 Federico Manzella <ferdiu.manzella@gmail.com> 6.1.26-4
 - Add missing CV3plus libraries
 
